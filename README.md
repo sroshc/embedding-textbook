@@ -32,8 +32,11 @@ a pinecone index. For each section, they will be named in the pinecone inedx as 
 The program pinecone_serach.py will take in user input of a query, then do a similarity search with all the previous inputed indexes.
 
 **Example:**
+
 Enter your search query: What are the nitrogenous bases of the double helix? what are the combinations?
 Most similar embedding ID: 13.1.13
 Similarity score: 0.713876247
 
 That corresponds with the 13th paragraph of section 13.1
+
+![alt text](https://github.com/sroshc/embedding-textbook/blob/main/image.png?raw=true)
