@@ -6,6 +6,7 @@ import os
 
 #Make sure to input your own API key in environment variables on windows 10 & 11
 #You can input api keys in linux with the commands: export OPENAI_API_KEY=(apikey)   &     export PINECONE_API_KEY=(apikey)
+#Input your code from commandline if it doesn't detect it
 try:
     openai.api_key = os.getenv("OPENAI_API_KEY") 
     client = OpenAI(api_key= os.getenv("OPENAI_API_KEY") )
