@@ -39,4 +39,4 @@ Similarity score: 0.713876247
 
 That corresponds with the 13th paragraph of section 13.1
 
-![alt text](https://github.com/sroshc/embedding-textbook/blob/main/image.png?raw=true)
+![alt text](https://github.com/sroshc/embedding-textbook/blob/main/similarity_example.png?raw=true)
