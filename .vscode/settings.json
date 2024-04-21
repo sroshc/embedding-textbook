@@ -1,3 +1,4 @@
 {
     "python.REPL.enableREPLSmartSend": false
 }
+// exists so that vscode doesn't be weird
