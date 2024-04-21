@@ -42,6 +42,13 @@ def find_most_similar(query_text, top_k=1):
     )
     return results
 
+def get_paragraph(id):
+    chapter, section, paragraph = id.split(".")
+    file_path = os.path.join("textbookfiles", str(chapter), f"13.{str(section)}.txt")
+    textfile = open(file_path, "r", encoding='utf-8') 
+    data = textfile.read()
+    paragraphlist = data.replace('\n', ' ').split("ENDLINE")
+    return paragraphlist[int(paragraph) - 1]
 
 
     
@@ -49,8 +56,15 @@ def find_most_similar(query_text, top_k=1):
 user_prompt = input("Enter your search query: ")
 results = find_most_similar(user_prompt)
 
-most_similar_id = results.matches[0].id  # still working on making an id system
+most_similar_id = results.matches[0].id  
 similarity_score = results.matches[0].score
+
+chapter, section, paragraph = most_similar_id.split(".")
+file_path = os.path.join("textbookfiles", str(chapter), f"13.{str(section)}.txt")
+textfile = open(file_path, "r", encoding='utf-8') 
+data = textfile.read()
+paragraphlist = data.replace('\n', ' ').split("ENDLINE")
 
 print("Most similar embedding ID:", most_similar_id)
 print("Similarity score:", similarity_score)
+print("Most similar paragraph:", print(get_paragraph(most_similar_id)))
