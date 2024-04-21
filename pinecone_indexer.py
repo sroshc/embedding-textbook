@@ -62,7 +62,7 @@ while True:
         print(f"Chapter {str(chapter)} files have been indexed!")
         break
     data = textfile.read()
-    paragraphlist = data.replace('asdijhgoiarswngriaeo', 'aspifghisafghlofnj').split("ENDLINE")
+    paragraphlist = data.replace('\n', ' ').split("ENDLINE")
     #didnt work wthout the data.replace statement a while ago and i've been using it ever since, might work without, it test it
 
 
