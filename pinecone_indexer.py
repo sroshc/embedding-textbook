@@ -63,6 +63,19 @@ while True:
     except FileNotFoundError:
         print(f"Chapter {str(chapter)} files have been indexed!")
         print(f"Estimated Tokens Used: {total_tokens}")
+        if total_tokens == 0:
+            print("This is likely an error. Check if you typed the chapter right, if so, error in txt file finding logic.")
+
+        log_path = os.path.join("token_log.txt")
+        logfile = open(log_path, "a", encoding = 'utf-8')
+        from datetime import datetime
+        now = datetime.now()
+        formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
+        logfile.write(f"_____________\nIndex Date: {formatted_date}\nApproximate Token Cost: {total_tokens}\nChapter: {chapter}\n_____________\n")
+        print("Logged, make sure to git commit to save new log")
+
+    
+
         break
     data = textfile.read()
     paragraphlist = data.replace('\n', ' ').split("ENDLINE")
