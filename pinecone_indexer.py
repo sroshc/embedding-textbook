@@ -4,6 +4,8 @@ import pinecone
 from pinecone import Pinecone, ServerlessSpec
 import os 
 
+total_tokens = 0
+
 #Make sure to input your own API key in environment variables on windows 10 & 11
 #You can input api keys in linux with the commands: export OPENAI_API_KEY=(apikey)   &     export PINECONE_API_KEY=(apikey)
 #Input your code from commandline if it doesn't detect it
@@ -60,15 +62,19 @@ while True:
         textfile = open(file_path, "r", encoding='utf-8') 
     except FileNotFoundError:
         print(f"Chapter {str(chapter)} files have been indexed!")
+        print(f"Estimated Tokens Used: {total_tokens}")
         break
     data = textfile.read()
     paragraphlist = data.replace('\n', ' ').split("ENDLINE")
-    #didnt work wthout the data.replace statement a while ago and i've been using it ever since, might work without, it test it
-
+    #i fixed it.
 
     paragraph_number = 0
     for text_to_embed in paragraphlist:
         embedding = get_embedding(text_to_embed)
+
+        tokens_for_text = len(text_to_embed)/4
+        total_tokens = total_tokens + int(tokens_for_text)
+        
 
         paragraph_number = paragraph_number + 1     
 
