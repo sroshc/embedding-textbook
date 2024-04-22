@@ -57,7 +57,7 @@ section = 1
 while True:
     try:
         #textfile = open(f"textbookfiles\{str(chapter)}\13.{str(section)}.txt", "r")
-        file_path = os.path.join("textbookfiles", str(chapter), f"13.{str(section)}.txt")
+        file_path = os.path.join("textbookfiles", str(chapter), f"{str(chapter)}.{str(section)}.txt")
         #textfile = open(file_path, "r")
         textfile = open(file_path, "r", encoding='utf-8') 
     except FileNotFoundError:
