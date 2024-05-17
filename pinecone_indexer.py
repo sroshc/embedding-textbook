@@ -64,7 +64,7 @@ while True:
         print(f"Chapter {str(chapter)} files have been indexed!")
         print(f"Estimated Tokens Used: {total_tokens}")
         if total_tokens == 0:
-            print("This is likely an error. Check if you typed the chapter right, if so, error in txt file finding logic.")
+            print("This is likely an error. Check if you typed the chapter right, if so, there is an error in txt file finding logic.")
 
         log_path = os.path.join("token_log.txt")
         logfile = open(log_path, "a", encoding = 'utf-8')
